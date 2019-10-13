@@ -8,5 +8,5 @@ private:
 
 public:
 	HANDLE handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, GetProcessId());
-	unsigned int MODULE_ADDR = 0x400000;
+	static unsigned int MODULE_ADDR;
 };

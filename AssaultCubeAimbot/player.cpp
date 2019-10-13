@@ -1,6 +1,11 @@
 #include <Windows.h>
 #include "player.h"
 
+
+unsigned int Player::base_addr_offset = 0x109B74;
+unsigned short Player::horizontal_cross_offset = 0x40;
+unsigned short Player::vertical_cross_offset = 0x44;
+
 Player::Player(Game& game) : m_game(game)
 {
 	ResolveBaseAddress();
