@@ -11,7 +11,7 @@ private:
 	void ResolveBaseAddress();
 	unsigned int base_addr;
 
-	static unsigned int base_addr_offset;
-	static unsigned short horizontal_cross_offset;
-	static unsigned short vertical_cross_offset;
+	static unsigned int BASE_ADDR_OFFSET;
+	static unsigned short HORIZONTAL_CROSS_OFFSET;
+	static unsigned short VERTICAL_CROSS_OFFSET;
 };
