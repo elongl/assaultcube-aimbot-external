@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>15</ID>
+      <Description>"Height"</Description>
+      <LastState Value="14" RealAddress="00F5A1CC"/>
+      <VariableType>Float</VariableType>
+      <Address>ac_client.exe+109B74</Address>
+      <Offsets>
+        <Offset>3c</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>16</ID>
+      <Description>"Horizontal axis crosshair"</Description>
+      <LastState Value="342.8777161" RealAddress="00F5A1D0"/>
+      <VariableType>Float</VariableType>
+      <Address>ac_client.exe+109B74</Address>
+      <Offsets>
+        <Offset>40</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>17</ID>
+      <Description>"Vertical axis crosshair"</Description>
+      <LastState Value="-7.090892315" RealAddress="00F5A1D4"/>
+      <VariableType>Float</VariableType>
+      <Address>ac_client.exe+109B74</Address>
+      <Offsets>
+        <Offset>44</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
