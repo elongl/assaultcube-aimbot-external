@@ -3,35 +3,15 @@
   <CheatEntries>
     <CheatEntry>
       <ID>23</ID>
-      <Description>"Player"</Description>
-      <LastState Value="14590352" RealAddress="00509B74"/>
+      <Description>"player"</Description>
+      <LastState Value="41394576" RealAddress="00509B74"/>
       <VariableType>4 Bytes</VariableType>
       <Address>ac_client.exe+109B74</Address>
       <CheatEntries>
         <CheatEntry>
-          <ID>27</ID>
-          <Description>"East West coord"</Description>
-          <LastState Value="172.5624695" RealAddress="00DEA1C4"/>
-          <VariableType>Float</VariableType>
-          <Address>ac_client.exe+109B74</Address>
-          <Offsets>
-            <Offset>34</Offset>
-          </Offsets>
-        </CheatEntry>
-        <CheatEntry>
-          <ID>26</ID>
-          <Description>"North South coord"</Description>
-          <LastState Value="117.6135101" RealAddress="00DEA1C8"/>
-          <VariableType>Float</VariableType>
-          <Address>ac_client.exe+109B74</Address>
-          <Offsets>
-            <Offset>38</Offset>
-          </Offsets>
-        </CheatEntry>
-        <CheatEntry>
           <ID>15</ID>
-          <Description>"Height"</Description>
-          <LastState Value="-4" RealAddress="00DEA1CC"/>
+          <Description>"z coord"</Description>
+          <LastState Value="-7" RealAddress="0277A1CC"/>
           <VariableType>Float</VariableType>
           <Address>ac_client.exe+109B74</Address>
           <Offsets>
@@ -40,8 +20,8 @@
         </CheatEntry>
         <CheatEntry>
           <ID>16</ID>
-          <Description>"Horizontal axis crosshair"</Description>
-          <LastState Value="196.1819916" RealAddress="00DEA1D0"/>
+          <Description>"yaw"</Description>
+          <LastState Value="163.9087524" RealAddress="0277A1D0"/>
           <VariableType>Float</VariableType>
           <Address>ac_client.exe+109B74</Address>
           <Offsets>
@@ -49,9 +29,29 @@
           </Offsets>
         </CheatEntry>
         <CheatEntry>
+          <ID>26</ID>
+          <Description>"y coord"</Description>
+          <LastState Value="183.1409607" RealAddress="0277A1C8"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"x coord"</Description>
+          <LastState Value="157.3892517" RealAddress="0277A1C4"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
           <ID>17</ID>
-          <Description>"Vertical axis crosshair"</Description>
-          <LastState Value="-30.90908813" RealAddress="00DEA1D4"/>
+          <Description>"pitch"</Description>
+          <LastState Value="-17.09090424" RealAddress="0277A1D4"/>
           <VariableType>Float</VariableType>
           <Address>ac_client.exe+109B74</Address>
           <Offsets>
@@ -59,9 +59,23 @@
           </Offsets>
         </CheatEntry>
         <CheatEntry>
+          <ID>50</ID>
+          <Description>"nickname"</Description>
+          <LastState RealAddress="0277A3B5"/>
+          <VariableType>String</VariableType>
+          <Length>10</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>225</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
           <ID>22</ID>
-          <Description>"Health"</Description>
-          <LastState Value="100" RealAddress="00DEA288"/>
+          <Description>"health"</Description>
+          <LastState Value="100" RealAddress="0277A288"/>
           <VariableType>4 Bytes</VariableType>
           <Address>ac_client.exe+109B74</Address>
           <Offsets>
@@ -69,35 +83,23 @@
           </Offsets>
         </CheatEntry>
         <CheatEntry>
-          <ID>20</ID>
-          <Description>"Crouch"</Description>
-          <LastState Value="0" RealAddress="00F7A1FE"/>
+          <ID>53</ID>
+          <Description>"crouch"</Description>
+          <LastState Value="0" RealAddress="0277A1FC"/>
           <VariableType>Byte</VariableType>
-          <Address>00F7A1FE</Address>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>6c</Offset>
+          </Offsets>
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
     <CheatEntry>
-      <ID>49</ID>
-      <Description>"Enemy East West coord"</Description>
-      <LastState Value="148" RealAddress="02A70344"/>
-      <VariableType>Float</VariableType>
-      <Address>ac_client.exe+10F4F8</Address>
-      <Offsets>
-        <Offset>34</Offset>
-        <Offset>0</Offset>
-      </Offsets>
-    </CheatEntry>
-    <CheatEntry>
-      <ID>48</ID>
-      <Description>"Enemy North South coord"</Description>
-      <LastState Value="180" RealAddress="02A70348"/>
-      <VariableType>Float</VariableType>
-      <Address>ac_client.exe+10F4F8</Address>
-      <Offsets>
-        <Offset>38</Offset>
-        <Offset>0</Offset>
-      </Offsets>
+      <ID>51</ID>
+      <Description>"entity list"</Description>
+      <LastState Value="44951600" RealAddress="0050F4F8"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0050F4F8</Address>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>

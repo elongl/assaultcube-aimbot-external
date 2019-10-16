@@ -1,17 +1,19 @@
 #pragma once
 #include "game.h"
+#include "vector3.h"
 
 class Player
 {
 public:
 	Player(Game&);
-	void SetCrosshair(float horizontal, float vertical);
+	Player(Game&, void* baseaddr);
+	void AimAt(Vector3&);
+	Vector3 GetPosition();
+	Player GetClosestEnemy();
+
 private:
 	Game& m_game;
-	void ResolveBaseAddress();
-	unsigned int base_addr;
-
-	static unsigned int BASE_ADDR_OFFSET;
-	static unsigned short HORIZONTAL_CROSS_OFFSET;
-	static unsigned short VERTICAL_CROSS_OFFSET;
+	unsigned int baseaddr;
+	void ReadMember(unsigned int offset, void* buffer);
+	void WriteMember(unsigned int offset, void* buffer);
 };

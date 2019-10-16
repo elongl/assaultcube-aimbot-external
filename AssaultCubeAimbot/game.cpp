@@ -2,8 +2,6 @@
 #include <iostream>
 #include "game.h"
 
-unsigned int Game::MODULE_ADDR = 0x400000;
-
 unsigned int Game::GetProcessId()
 {
 	DWORD pid;
