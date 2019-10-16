@@ -6,11 +6,11 @@
 int main()
 {
 	Game game;
-	Player player(game);
-	Vector3 pos(121, 137, 0);
+	Player self(game);
+	Vector3 target(121, 137, 9);
 	while (true)
 	{
-		player.AimAt(pos);
+		self.AimAt(target);
 		Sleep(16);
 	}
 }

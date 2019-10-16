@@ -30,8 +30,11 @@ void Player::AimAt(Vector3& coords)
 	unsigned int yaw_offset = 0x40, pitch_offset = 0x44;
 	Vector3 my_pos = GetPosition();
 
+	float distance = my_pos.DistanceFrom(coords);
 	float yaw_angle = (atan2f(coords.y - my_pos.y, coords.x - my_pos.x) * (180 / PI)) + 90;
+	float pitch_angle = asin((coords.z - my_pos.z) / distance) * (180 / PI);
 	WriteMember(yaw_offset, &yaw_angle);
+	WriteMember(pitch_offset, &pitch_angle);
 }
 
 Player Player::GetClosestEnemy()
