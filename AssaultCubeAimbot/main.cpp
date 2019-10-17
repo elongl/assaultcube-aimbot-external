@@ -7,7 +7,7 @@ int main()
 {
 	Game game;
 	Player self(game);
-	Vector3 target(121, 137, 9);
+	Vector3 target = self.GetPosition();
 	while (true)
 	{
 		self.AimAt(target);
