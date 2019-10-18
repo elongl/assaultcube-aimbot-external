@@ -11,6 +11,18 @@ Player::Player(Game& game) : m_game(game)
 
 Player::Player(Game& game, unsigned int baseaddr) : m_game(game), baseaddr(baseaddr) {}
 
+void Player::SetHealth(unsigned int hp)
+{
+	WriteMember(0xF8, &hp);
+}
+
+unsigned int Player::GetHealth()
+{
+	unsigned int hp;
+	ReadMember(0xF8, &hp);
+	return hp;
+}
+
 Vector3 Player::GetPosition()
 {
 	float x_coord, y_coord, z_coord;
@@ -20,6 +32,11 @@ Vector3 Player::GetPosition()
 	ReadMember(y_offset, &y_coord);
 	ReadMember(z_offset, &z_coord);
 	return Vector3(x_coord, y_coord, z_coord);
+}
+
+void Player::SetAmmo(unsigned int ammo)
+{
+	WriteMember(0x150, &ammo);
 }
 
 unsigned int Player::GetTeamId()
@@ -50,6 +67,8 @@ std::unique_ptr<Player> Player::GetClosestEnemy()
 	{
 		ReadProcessMemory(m_game.handle, (void*)(m_game.entity_list + (4 * i)), &player_addr, sizeof(player_addr), NULL);
 		std::unique_ptr<Player> player(new Player(m_game, player_addr));
+		if (player->GetHealth() > 100)
+			continue;
 		if (player->GetTeamId() == GetTeamId())
 			continue;
 		if (!closest_player)
@@ -58,6 +77,18 @@ std::unique_ptr<Player> Player::GetClosestEnemy()
 			closest_player = std::move(player);
 	}
 	return closest_player;
+}
+
+void Player::Shoot()
+{
+	bool should_shoot = true;
+	WriteMember(0x224, &should_shoot);
+}
+
+void Player::StopShooting()
+{
+	bool should_shoot = false;
+	WriteMember(0x224, &should_shoot);
 }
 
 void Player::ReadMember(unsigned int offset, void* buffer)

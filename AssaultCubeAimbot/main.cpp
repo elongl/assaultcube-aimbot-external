@@ -15,6 +15,9 @@ int main()
 		{
 			std::unique_ptr<Player> closest_enemy = self.GetClosestEnemy();
 			self.AimAt(closest_enemy->GetPosition());
+			self.SetHealth(1337);
+			self.SetAmmo(6969);
+			self.Shoot();
 			Sleep(16);
 		}
 	}

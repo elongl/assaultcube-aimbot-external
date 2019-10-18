@@ -7,10 +7,15 @@ class Player
 public:
 	Player(Game&);
 	Player(Game&, unsigned int baseaddr);
+	void SetHealth(unsigned int);
+	unsigned int GetHealth();
 	void AimAt(Vector3);
 	Vector3 GetPosition();
+	void SetAmmo(unsigned int);
 	unsigned int GetTeamId();
 	std::unique_ptr<Player> GetClosestEnemy();
+	void Shoot();
+	void StopShooting();
 
 private:
 	Game& m_game;
