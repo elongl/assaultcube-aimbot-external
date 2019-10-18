@@ -66,7 +66,7 @@ std::unique_ptr<Player> Player::GetClosestEnemy()
 	for (int i = 1; i <= m_game.player_count; i++)
 	{
 		ReadProcessMemory(m_game.handle, (void*)(m_game.entity_list + (4 * i)), &player_addr, sizeof(player_addr), NULL);
-		std::unique_ptr<Player> player(new Player(m_game, player_addr));
+		auto player = std::make_unique<Player>(m_game, player_addr);
 		if (player->GetHealth() > 100)
 			continue;
 		if (player->GetTeamId() == GetTeamId())
