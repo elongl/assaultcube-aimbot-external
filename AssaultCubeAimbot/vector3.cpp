@@ -5,9 +5,9 @@
 
 Vector3::Vector3(float x, float y, float z) :x(x), y(y), z(z) {}
 
-float Vector3::DistanceFrom(Vector3& coords)
+float Vector3::DistanceFrom(Vector3 target)
 {
-	return sqrtf(powf(coords.x - x, 2) + powf(coords.y - y, 2) + powf(coords.z - z, 2));
+	return sqrtf(powf(target.x - x, 2) + powf(target.y - y, 2) + powf(target.z - z, 2));
 }
 
 float Vector3::GetYawAngle(Vector3& target)

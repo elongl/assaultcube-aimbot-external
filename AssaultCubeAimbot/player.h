@@ -6,10 +6,11 @@ class Player
 {
 public:
 	Player(Game&);
-	Player(Game&, void* baseaddr);
-	void AimAt(Vector3&);
+	Player(Game&, unsigned int baseaddr);
+	void AimAt(Vector3);
 	Vector3 GetPosition();
-	Player GetClosestEnemy();
+	unsigned int GetTeamId();
+	std::unique_ptr<Player> GetClosestEnemy();
 
 private:
 	Game& m_game;
