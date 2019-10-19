@@ -1,4 +1,5 @@
 #include <Windows.h>
+#include <vector>
 #include <memory>
 #include <math.h>
 #include "player.h"
@@ -25,13 +26,10 @@ unsigned int Player::GetHealth()
 
 Vector3 Player::GetPosition()
 {
-	float x_coord, y_coord, z_coord;
-	unsigned int x_offset = 0x34, y_offset = 0x38, z_offset = 0x3C;
-	// Consider reading them all at once.
-	ReadMember(x_offset, &x_coord);
-	ReadMember(y_offset, &y_coord);
-	ReadMember(z_offset, &z_coord);
-	return Vector3(x_coord, y_coord, z_coord);
+	coords_t coords;
+	unsigned int coords_offset = 0x34;
+	ReadMember(coords_offset, &coords, sizeof(coords));
+	return Vector3(coords);
 }
 
 void Player::SetAmmo(unsigned int ammo)
@@ -48,13 +46,10 @@ unsigned int Player::GetTeamId()
 
 void Player::AimAt(Vector3 target)
 {
-	unsigned int yaw_offset = 0x40, pitch_offset = 0x44;
+	unsigned int camera_offset = 0x40;
 	Vector3 my_pos = GetPosition();
-	float yaw_angle = my_pos.GetYawAngle(target);
-	float pitch_angle = my_pos.GetPitchAngle(target);
-	// Consider writing them all at once.
-	WriteMember(yaw_offset, &yaw_angle);
-	WriteMember(pitch_offset, &pitch_angle);
+	camera_t camera{ my_pos.GetYawAngle(target), my_pos.GetPitchAngle(target) };
+	WriteMember(camera_offset, &camera, sizeof(camera));
 }
 
 std::unique_ptr<Player> Player::GetClosestEnemy()
@@ -96,7 +91,17 @@ void Player::ReadMember(unsigned int offset, void* buffer)
 	ReadProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, sizeof(buffer), NULL);
 }
 
+void Player::ReadMember(unsigned int offset, void* buffer, unsigned int size)
+{
+	ReadProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, size, NULL);
+}
+
 void Player::WriteMember(unsigned int offset, void* buffer)
 {
 	WriteProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, sizeof(buffer), NULL);
+}
+
+void Player::WriteMember(unsigned int offset, void* buffer, unsigned int size)
+{
+	WriteProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, size, NULL);
 }

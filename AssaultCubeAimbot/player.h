@@ -21,5 +21,7 @@ private:
 	Game& m_game;
 	unsigned int baseaddr;
 	void ReadMember(unsigned int offset, void* buffer);
+	void ReadMember(unsigned int offset, void* buffer, unsigned int size);
 	void WriteMember(unsigned int offset, void* buffer);
+	void WriteMember(unsigned int offset, void* buffer, unsigned int size);
 };
