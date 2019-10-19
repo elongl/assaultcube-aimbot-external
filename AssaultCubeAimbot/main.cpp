@@ -13,11 +13,15 @@ int main()
 	{
 		while (true)
 		{
-			std::unique_ptr<Player> closest_enemy = self.GetClosestEnemy();
-			self.AimAt(closest_enemy->GetPosition());
 			self.SetHealth(1337);
 			self.SetAmmo(6969);
-			self.Shoot();
+
+			std::unique_ptr<Player> closest_enemy = self.GetClosestEnemy();
+			if (closest_enemy)
+			{
+				self.AimAt(closest_enemy->GetPosition());
+				self.Shoot();
+			}
 			Sleep(16);
 		}
 	}

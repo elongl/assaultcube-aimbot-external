@@ -18,8 +18,8 @@ public:
 	Vector3(float x, float y, float z);
 	Vector3(coords_t);
 	float DistanceFrom(Vector3);
-	float GetYawAngle(Vector3&);
-	float GetPitchAngle(Vector3&);
+	float GetYawAngle(Vector3);
+	float GetPitchAngle(Vector3);
 	float x;
 	float y;
 	float z;
