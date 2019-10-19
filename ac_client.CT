@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>23</ID>
+      <Description>"player"</Description>
+      <LastState Value="14983568" RealAddress="00509B74"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>ac_client.exe+109B74</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>15</ID>
+          <Description>"z coord"</Description>
+          <LastState Value="6" RealAddress="00E4A1CC"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>3c</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>16</ID>
+          <Description>"yaw"</Description>
+          <LastState Value="176.8181763" RealAddress="00E4A1D0"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>40</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>26</ID>
+          <Description>"y coord"</Description>
+          <LastState Value="103" RealAddress="00E4A1C8"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>38</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>27</ID>
+          <Description>"x coord"</Description>
+          <LastState Value="88" RealAddress="00E4A1C4"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>34</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>17</ID>
+          <Description>"pitch"</Description>
+          <LastState Value="-4.818181038" RealAddress="00E4A1D4"/>
+          <VariableType>Float</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>44</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>50</ID>
+          <Description>"nickname"</Description>
+          <LastState RealAddress="00E4A3B5"/>
+          <VariableType>String</VariableType>
+          <Length>10</Length>
+          <Unicode>0</Unicode>
+          <CodePage>0</CodePage>
+          <ZeroTerminate>1</ZeroTerminate>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>225</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>22</ID>
+          <Description>"health"</Description>
+          <LastState Value="100" RealAddress="00E4A288"/>
+          <VariableType>4 Bytes</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>F8</Offset>
+          </Offsets>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>53</ID>
+          <Description>"crouch"</Description>
+          <LastState Value="0" RealAddress="00E4A1FC"/>
+          <VariableType>Byte</VariableType>
+          <Address>ac_client.exe+109B74</Address>
+          <Offsets>
+            <Offset>6c</Offset>
+          </Offsets>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>54</ID>
+      <Description>"amount of players"</Description>
+      <LastState Value="12" RealAddress="0050F500"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>ac_client.exe+10F500</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>51</ID>
+      <Description>"entity list"</Description>
+      <LastState Value="250499176" RealAddress="0050F4F8"/>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0050F4F8</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
