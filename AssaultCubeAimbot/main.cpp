@@ -16,12 +16,12 @@ int main()
 			self.SetHealth(1337);
 			self.SetAmmo(6969);
 
-			std::unique_ptr<Player> closest_enemy = self.GetClosestEnemy();
-			if (closest_enemy)
+			if (self.IsShooting())
 			{
-				self.AimAt(closest_enemy->GetPosition());
-				self.Shoot();
+				std::unique_ptr<Player> closest_enemy = self.GetClosestEnemy();
+				if (closest_enemy) self.AimAt(closest_enemy->GetPosition());
 			}
+
 			Sleep(16);
 		}
 	}

@@ -14,8 +14,7 @@ public:
 	void SetAmmo(unsigned int);
 	unsigned int GetTeamId();
 	std::unique_ptr<Player> GetClosestEnemy();
-	void Shoot();
-	void StopShooting();
+	bool IsShooting();
 
 private:
 	Game& m_game;

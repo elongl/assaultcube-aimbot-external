@@ -12,10 +12,7 @@ Player::Player(Game& game) : m_game(game)
 
 Player::Player(Game& game, unsigned int baseaddr) : m_game(game), baseaddr(baseaddr) {}
 
-void Player::SetHealth(unsigned int hp)
-{
-	WriteMember(0xF8, &hp);
-}
+void Player::SetHealth(unsigned int hp) { WriteMember(0xF8, &hp); }
 
 unsigned int Player::GetHealth()
 {
@@ -32,10 +29,7 @@ Vector3 Player::GetPosition()
 	return Vector3(coords);
 }
 
-void Player::SetAmmo(unsigned int ammo)
-{
-	WriteMember(0x150, &ammo);
-}
+void Player::SetAmmo(unsigned int ammo) { WriteMember(0x150, &ammo); }
 
 unsigned int Player::GetTeamId()
 {
@@ -62,28 +56,20 @@ std::unique_ptr<Player> Player::GetClosestEnemy()
 	{
 		ReadProcessMemory(m_game.handle, (void*)(m_game.entity_list + (4 * i)), &player_addr, sizeof(player_addr), NULL);
 		auto player = std::make_unique<Player>(m_game, player_addr);
-		if (player->GetHealth() > 100)
-			continue;
-		if (player->GetTeamId() == GetTeamId())
-			continue;
-		if (!closest_player)
-			closest_player = std::move(player);
+		if (player->GetHealth() > 100) continue;
+		if (player->GetTeamId() == GetTeamId()) continue;
+		if (!closest_player) closest_player = std::move(player);
 		else if (my_pos.DistanceFrom(player->GetPosition()) < my_pos.DistanceFrom(closest_player->GetPosition()))
 			closest_player = std::move(player);
 	}
 	return closest_player;
 }
 
-void Player::Shoot()
+bool Player::IsShooting()
 {
-	bool should_shoot = true;
-	WriteMember(0x224, &should_shoot);
-}
-
-void Player::StopShooting()
-{
-	bool should_shoot = false;
-	WriteMember(0x224, &should_shoot);
+	bool is_shooting;
+	ReadMember(0x224, &is_shooting);
+	return is_shooting;
 }
 
 void Player::ReadMember(unsigned int offset, void* buffer)
