@@ -1,4 +1,5 @@
 #include <math.h>
+#include <cmath>
 #include "vector3.h"
 
 #define PI 3.141592653589793238463
@@ -7,7 +8,7 @@ Vector3::Vector3(coords_t coords) : x(coords.x), y(coords.y), z(coords.z) {}
 
 float Vector3::DistanceFrom(Vector3 target)
 {
-	return sqrtf(powf(target.x - x, 2) + powf(target.y - y, 2) + powf(target.z - z, 2));
+	return std::hypot(target.x - x, target.y - y, target.z - z);
 }
 
 float Vector3::GetYawAngle(Vector3 target)

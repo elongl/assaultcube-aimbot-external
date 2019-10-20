@@ -1,6 +1,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "game.h"
+#include "player.h"
 
 Game::Game()
 {
@@ -12,9 +13,9 @@ unsigned int Game::GetProcessId()
 {
 	DWORD pid;
 	HWND window = FindWindowA(NULL, "AssaultCube");
-	if (window == NULL)
+	if (!window)
 	{
-		std::cerr << "ERROR: Failed finding window." << std::endl;
+		std::cerr << "ERROR: Failed finding window.";
 		std::exit(1);
 	}
 	GetWindowThreadProcessId(window, &pid);

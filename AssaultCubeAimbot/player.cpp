@@ -10,14 +10,14 @@ Player::Player(Game& game) : m_game(game)
 	ReadProcessMemory(m_game.handle, self, &baseaddr, sizeof(baseaddr), NULL);
 }
 
-Player::Player(Game& game, unsigned int baseaddr) : m_game(game), baseaddr(baseaddr) {}
+Player::Player(Game& game, std::uint32_t baseaddr) : m_game(game), baseaddr(baseaddr) {}
 
-void Player::SetHealth(unsigned int hp) { WriteMember(0xF8, &hp); }
+void Player::SetHealth(std::uint32_t hp) { WriteMember(0xF8, &hp, sizeof(hp)); }
 
-unsigned int Player::GetHealth()
+std::uint32_t Player::GetHealth()
 {
-	unsigned int hp;
-	ReadMember(0xF8, &hp);
+	std::uint32_t hp;
+	ReadMember(0xF8, &hp, sizeof(hp));
 	return hp;
 }
 
@@ -29,12 +29,12 @@ Vector3 Player::GetPosition()
 	return Vector3(coords);
 }
 
-void Player::SetAmmo(unsigned int ammo) { WriteMember(0x150, &ammo); }
+void Player::SetAmmo(std::uint32_t ammo) { WriteMember(0x150, &ammo, sizeof(ammo)); }
 
-unsigned int Player::GetTeamId()
+std::uint32_t Player::GetTeamId()
 {
-	unsigned int team_id;
-	ReadMember(0x32C, &team_id);
+	std::uint32_t team_id;
+	ReadMember(0x32C, &team_id, sizeof(team_id));
 	return team_id;
 }
 
@@ -48,14 +48,14 @@ void Player::AimAt(Vector3 target)
 
 std::unique_ptr<Player> Player::GetClosestEnemy()
 {
-	unsigned int player_addr;
+	std::uint32_t playeraddr;
 	std::unique_ptr<Player> closest_player;
 	Vector3 my_pos = GetPosition();
 
-	for (int i = 1; i <= m_game.player_count; i++)
+	for (unsigned int i = 1; i <= m_game.player_count; i++)
 	{
-		ReadProcessMemory(m_game.handle, (void*)(m_game.entity_list + (4 * i)), &player_addr, sizeof(player_addr), NULL);
-		auto player = std::make_unique<Player>(m_game, player_addr);
+		ReadProcessMemory(m_game.handle, (void*)(m_game.entity_list + (4 * i)), &playeraddr, sizeof(playeraddr), NULL);
+		auto player = std::make_unique<Player>(m_game, playeraddr);
 		if (player->GetHealth() > 100) continue;
 		if (player->GetTeamId() == GetTeamId()) continue;
 		if (!closest_player) closest_player = std::move(player);
@@ -68,23 +68,13 @@ std::unique_ptr<Player> Player::GetClosestEnemy()
 bool Player::IsShooting()
 {
 	bool is_shooting;
-	ReadMember(0x224, &is_shooting);
+	ReadMember(0x224, &is_shooting, sizeof(is_shooting));
 	return is_shooting;
-}
-
-void Player::ReadMember(unsigned int offset, void* buffer)
-{
-	ReadProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, sizeof(buffer), NULL);
 }
 
 void Player::ReadMember(unsigned int offset, void* buffer, unsigned int size)
 {
 	ReadProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, size, NULL);
-}
-
-void Player::WriteMember(unsigned int offset, void* buffer)
-{
-	WriteProcessMemory(m_game.handle, (void*)(baseaddr + offset), buffer, sizeof(buffer), NULL);
 }
 
 void Player::WriteMember(unsigned int offset, void* buffer, unsigned int size)
